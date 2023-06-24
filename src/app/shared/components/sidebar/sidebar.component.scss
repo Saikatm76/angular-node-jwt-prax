@@ -1,0 +1,18 @@
+.mat-divider {
+  border-top-width: 2px;
+  border-top-style: dashed;
+  border-top-color: red;
+  display: block;
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+
+  mat-icon {
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,57 @@
+<div class="row g-0" style="height:auto;">
+    <div class="col-md-12"
+        style="background-image: url('https://media.istockphoto.com/photos/abstract-blue-cyan-background-picture-id995719694?b=1&k=20&m=995719694&s=170667a&w=0&h=bQ4Imx3qGb0-ZCPz5JIjyOWpgYENfVzbO3wR_pnNpYw=');">
+        <div class="card-body" style="height:auto;">
+            <div style="display:flex; align-items:center; margin-bottom: 15px;">
+                <mat-icon class="mat-icon-rtl-mirror">key</mat-icon>
+                <span style="font-weight:bolder;color: rgb(0, 68, 255); font-size: 20px; margin-left: 7px;">Log
+                    In</span>
+            </div>
+            <div class="card" style="width: 20rem;height: auto;margin-left:30px;">
+                <div class="card-body"
+                    style="background-image: url('https://cdn3.vectorstock.com/i/1000x1000/50/52/abstract-light-blue-background-vector-4595052.jpg') ; height: auto;">
+                    <form class="row" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                        <div class="col-md-12">
+                            <label for="inputEmail4" class="form-label" style="font-weight:bold;">Email</label>
+                            <input formControlName="email" type="email" class="form-control" id="inputEmail4"
+                                placeholder="abc@something.com"
+                                [ngClass]="{'is-invalid':(loginForm.get('email').touched && loginForm.get('email').invalid)}">
+                            <div *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid"
+                                class="invalid-feedback">
+                                <small *ngIf="loginForm.get('email').errors.required">*email is
+                                    empty</small>
+                                <small *ngIf="loginForm.get('email').errors.pattern">*enter
+                                    valid mail address</small>
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-1">
+                            <label for="inputPassword4" class="form-label" style="font-weight:bold;">Password</label>
+                            <input formControlName="password" type="password" class="form-control" id="inputPassword4"
+                                placeholder="password?"
+                                [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}">
+                            <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid"
+                                class="invalid-feedback">
+                                <small *ngIf="loginForm.get('password').errors.required">*password is
+                                    empty</small>
+                                <small *ngIf="loginForm.get('password').errors.pattern">*password must
+                                    contain 8 character</small>
+                            </div>
+                            <div class="form-check my-2">
+                                <input formControlName="rememberMe" class="form-control form-check-input"
+                                    type="checkbox" id="flexCheckDefault" />&nbsp;
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <small><a>forgot password?</a></small>
+                        <div class="col-md-1 my-2 mx-1">
+                            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-outline-dark btn-sm"
+                                style="float:left"><b>LogIn</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

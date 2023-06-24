@@ -1,0 +1,107 @@
+<div class="row g-0" style="height:auto;">
+    <div class="col-md-12"
+        style="background-image: url('https://media.istockphoto.com/photos/abstract-blue-cyan-background-picture-id995719694?b=1&k=20&m=995719694&s=170667a&w=0&h=bQ4Imx3qGb0-ZCPz5JIjyOWpgYENfVzbO3wR_pnNpYw=');">
+        <div class="card-body" style="height:auto;">
+            <div style="display:flex; align-items:center; margin-bottom: 20px;">
+                <mat-icon class="mat-icon-rtl-mirror">lock</mat-icon>
+                <span style="font-weight:bolder;color: rgb(0, 68, 255); font-size: 20px; margin-left: 7px;">Register as
+                    Admin</span>
+            </div>
+
+            <form class="row" [formGroup]="signupForm" (ngSubmit)="onSignup(formDirective)" autocomplete="off"
+                novalidate #formDirective="ngForm">
+                <div class="col-md-6 mt-1">
+                    <label class="form-label fw-bold notselect">First name</label>
+                    <input formControlName="firstname" type="text" class="form-control" id="inputFirstname"
+                        name="firstname" placeholder="enter first name"
+                        [ngClass]="{'is-invalid':signupForm.get('firstname').touched && signupForm.get('firstname').invalid}">
+                    <div *ngIf="signupForm.get('firstname').touched && signupForm.get('firstname').invalid"
+                        class="invalid-feedback">
+                        <small *ngIf="signupForm.get('firstname').errors.required">*first name is
+                            empty</small>
+                        <small
+                            *ngIf="signupForm.get('firstname').errors.pattern ||signupForm.get('firstname').errors.maxlength|| signupForm.get('firstname').errors.minlength">*enter
+                            valid name</small>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-1">
+                    <label class="form-label fw-bold notselect">Last Name</label>
+                    <input formControlName="lastname" type="text" class="form-control" id="inputLastname"
+                        name="lastname" placeholder="enter last name"
+                        [ngClass]="{'is-invalid':signupForm.get('lastname').touched && signupForm.get('lastname').invalid}">
+                    <div *ngIf="signupForm.get('lastname').touched && signupForm.get('lastname').invalid"
+                        class="invalid-feedback">
+                        <small *ngIf="signupForm.get('lastname').errors.required">*last name is
+                            empty</small>
+                        <small
+                            *ngIf="signupForm.get('lastname').errors.pattern ||signupForm.get('lastname').errors.maxlength|| signupForm.get('lastname').errors.minlength">enter
+                            valid surname</small>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-1">
+                    <label class="form-label fw-bold notselect">Phone</label>
+                    <input formControlName="phone" type="tel" class="form-control" id="Phone" name="phone"
+                        placeholder="enter phone name"
+                        [ngClass]="{'is-invalid':(signupForm.get('phone').touched && signupForm.get('phone').invalid)}">
+                    <div *ngIf="signupForm.get('phone').touched && signupForm.get('phone').invalid"
+                        class="invalid-feedback">
+                        <small *ngIf="signupForm.get('phone').errors.required">*phone number is
+                            empty</small>
+                        <small *ngIf="signupForm.get('phone').errors.pattern">*enter
+                            valid number</small>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-1">
+                    <label class="form-label fw-bold notselect">Email</label>
+                    <input formControlName="email" type="email" class="form-control" id="inputEmail" name="email"
+                        placeholder="enter user address"
+                        [ngClass]="{'is-invalid':(signupForm.get('email').touched && signupForm.get('email').invalid)}">
+                    <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid"
+                        class="invalid-feedback">
+                        <small *ngIf="signupForm.get('email').errors.required">*email is
+                            empty</small>
+                        <small *ngIf="signupForm.get('email').errors.pattern">*enter
+                            valid mail address</small>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-1">
+                    <label class="form-label fw-bold notselect">Password</label>
+                    <input formControlName="password" type="password" class="form-control" id="inputPass"
+                        name="password" placeholder="@Sk123"
+                        [ngClass]="{'is-invalid':signupForm.get('password').touched && signupForm.get('password').invalid}">
+                    <div *ngIf="signupForm.get('password').touched && signupForm.get('password').invalid"
+                        class="invalid-feedback">
+                        <small *ngIf="signupForm.get('password').errors.required">*password is
+                            empty</small>
+                        <small *ngIf="signupForm.get('password').errors.pattern">*password must contain 8
+                            character</small>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-1">
+                    <label class="form-label fw-bold notselect">Confirm Password</label>
+                    <input formControlName="Confirm_password" type="password" class="form-control" id="inputCPass"
+                        name="Confirm_password" placeholder="confirm your password"
+                        [ngClass]="{'is-invalid':signupForm.get('Confirm_password').touched && (signupForm.get('password').value != signupForm.get('Confirm_password').value)}">
+                    <div *ngIf="signupForm.get('Confirm_password').touched && (signupForm.get('password').value != signupForm.get('Confirm_password').value)"
+                        class="invalid-feedback">
+                        <small>*password not matched</small>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mt-3 mx-1 mr-1">
+                    <button
+                        [disabled]="signupForm.invalid || signupForm.get('Confirm_password').untouched || (signupForm.get('password').value != signupForm.get('Confirm_password').value)"
+                        type="submit" class="btn btn-outline-dark fw-bold mx-1" style="float:left">
+                        SignUp
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
